@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://qdvarej0iqca"]
+
+[ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="1_7lgha"]
+[ext_resource type="PackedScene" uid="uid://c3kk7o7vllos4" path="res://scenes/ui/sound_button.tscn" id="4_ashbf"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_7lgha")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.607843, 0.298039, 0.639216, 0.352941)
+
+[node name="TopContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="TopContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="TopContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TopContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="TopContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+theme_override_font_sizes/font_size = 32
+text = "PAUSED"
+
+[node name="ResumeButton" parent="TopContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_ashbf")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume"
+
+[node name="RestartButton" parent="TopContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_ashbf")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Run"
+
+[node name="OptionsButton" parent="TopContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_ashbf")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" parent="TopContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_ashbf")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit to Menu"

@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqh1x33psatau"]
+
+[ext_resource type="Script" path="res://scenes/ui/end_screen.gd" id="1_g1tit"]
+[ext_resource type="AudioStream" uid="uid://72q1wv5ox038" path="res://assets/audio/jingles_victory.ogg" id="2_00klk"]
+[ext_resource type="PackedScene" uid="uid://c3kk7o7vllos4" path="res://scenes/ui/sound_button.tscn" id="2_xn2x2"]
+[ext_resource type="AudioStream" uid="uid://dplps5letc70x" path="res://assets/audio/jingles_defeat.ogg" id="3_bnwjs"]
+
+[node name="EndScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_g1tit")
+victory_audio = ExtResource("2_00klk")
+defeat_audio = ExtResource("3_bnwjs")
+
+[node name="ScreenOpenAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+bus = &"sfx"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.588235, 0.258824, 0.576471, 0.490196)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+theme_override_font_sizes/font_size = 32
+text = "Victory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MentionLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "You won!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RestartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_xn2x2")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Restart"
+
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_xn2x2")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"

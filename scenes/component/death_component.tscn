@@ -1,0 +1,46 @@
+[gd_scene load_steps=12 format=3 uid="uid://cxata0s0mr3f5"]
+
+[ext_resource type="Script" path="res://scenes/component/death_component.gd" id="1_ynhqu"]
+[ext_resource type="Texture2D" uid="uid://cxt418pax4yll" path="res://scenes/ability/axe_ability/axe.png" id="2_fiw8t"]
+[ext_resource type="PackedScene" uid="uid://b2kw61u05fdqe" path="res://scenes/component/random_audio_stream_player_2d.tscn" id="3_ktn62"]
+[ext_resource type="AudioStream" uid="uid://doxc3f6ikkjsr" path="res://assets/audio/footstep_carpet_000.ogg" id="4_ay5m1"]
+[ext_resource type="AudioStream" uid="uid://lsxblpmhtgq2" path="res://assets/audio/footstep_carpet_001.ogg" id="5_aaiah"]
+[ext_resource type="AudioStream" uid="uid://cld8rucvfpfu3" path="res://assets/audio/footstep_carpet_002.ogg" id="6_r4kck"]
+[ext_resource type="AudioStream" uid="uid://bfpo3gl4685hn" path="res://assets/audio/footstep_carpet_003.ogg" id="7_2pd7l"]
+[ext_resource type="AudioStream" uid="uid://mmt86gqkb14v" path="res://assets/audio/footstep_carpet_004.ogg" id="8_r3xsd"]
+
+[sub_resource type="Curve" id="Curve_yoypa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ka0hs"]
+curve = SubResource("Curve_yoypa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hlk6q"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+gravity = Vector3(0, 400, 0)
+scale_curve = SubResource("CurveTexture_ka0hs")
+color = Color(0.831373, 0.831373, 0.831373, 1)
+
+[node name="DeathComponent" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ynhqu")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_hlk6q")
+texture = ExtResource("2_fiw8t")
+lifetime = 0.5
+one_shot = true
+fixed_fps = 0
+interpolate = false
+
+[node name="HitRandomAudioStreamPlayer2D" parent="." instance=ExtResource("3_ktn62")]
+stream_array = Array[AudioStream]([ExtResource("4_ay5m1"), ExtResource("5_aaiah"), ExtResource("6_r4kck"), ExtResource("7_2pd7l"), ExtResource("8_r3xsd")])

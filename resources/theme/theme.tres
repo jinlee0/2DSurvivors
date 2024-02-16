@@ -1,0 +1,78 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cdrflxpnqgci1"]
+
+[ext_resource type="Texture2D" uid="uid://clhevdafwbrrm" path="res://assets/ui/ui.png" id="1_0vlue"]
+[ext_resource type="FontFile" uid="uid://cbnt7xasfsujo" path="res://resources/theme/Rockboxcond12.ttf" id="1_xp7il"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nkgql"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_0vlue")
+texture_margin_left = 11.0
+texture_margin_top = 4.0
+texture_margin_right = 12.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(17, 0, 15, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7lfvh"]
+texture = ExtResource("1_0vlue")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(20, 20, 8, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3gv4"]
+texture = ExtResource("1_0vlue")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(4, 20, 8, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1q15k"]
+bg_color = Color(0.458824, 0.890196, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rdaa"]
+bg_color = Color(0.458824, 0.890196, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfkof"]
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 2.0
+content_margin_bottom = 4.0
+bg_color = Color(0.247059, 0.14902, 0.192157, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sswkm"]
+texture = ExtResource("1_0vlue")
+texture_margin_left = 5.0
+texture_margin_top = 6.0
+texture_margin_right = 5.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngdqp"]
+bg_color = Color(0.247059, 0.14902, 0.192157, 1)
+
+[resource]
+default_font = ExtResource("1_xp7il")
+default_font_size = 16
+AlternatePanelContainer/base_type = &"PanelContainer"
+AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_nkgql")
+BlueOutlineLabel/base_type = &"Label"
+BlueOutlineLabel/colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
+BlueOutlineLabel/colors/font_shadow_color = Color(0.14902, 0.168627, 0.266667, 1)
+BlueOutlineLabel/constants/outline_size = 8
+BlueOutlineLabel/constants/shadow_offset_x = 0
+BlueOutlineLabel/constants/shadow_offset_y = 0
+Button/colors/font_color = Color(0.247059, 0.14902, 0.192157, 1)
+Button/colors/font_focus_color = Color(0.247059, 0.14902, 0.192157, 1)
+Button/colors/font_hover_color = Color(0.741176, 0.423529, 0.290196, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_7lfvh")
+Button/styles/normal = SubResource("StyleBoxTexture_t3gv4")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_1q15k")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_0rdaa")
+HSlider/styles/slider = SubResource("StyleBoxFlat_gfkof")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_sswkm")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_ngdqp")
